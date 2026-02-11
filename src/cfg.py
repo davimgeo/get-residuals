@@ -7,6 +7,7 @@ class Parameters:
   
   receivers = ""
   sources = ""
+
   offset = 0.0
 
   model_path = ""
@@ -20,6 +21,8 @@ class Parameters:
   dh = 0
 
   tlag = 0.0
+  
+  perc = 99
 
   save_residual = False
 

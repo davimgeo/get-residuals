@@ -114,7 +114,7 @@ class Residual:
       self.damp2D[:self.c.nb,j] *= damp1D
       self.damp2D[-self.c.nb:,j] *= damp1D[::-1]
 
-  def plot(self, seismogram):
+  def plot(self, seismogram, title=None):
     tloc = np.linspace(0, self.c.nt - 1, 11, dtype=int)
     tlab = np.around(tloc * self.c.dt, decimals=1)
 
@@ -129,15 +129,6 @@ class Residual:
     img = ax.imshow(seismogram, aspect="auto", cmap="Greys",
                     vmin=scale_min, vmax=scale_max)
 
-    #plot of direct wave curve
-    try:
-      x_plot = np.arange(self.geom.nrec)
-      y_plot = self.direct_wave / self.c.dt
-    
-      ax.plot(x_plot, y_plot, 'r--')
-    except:
-      pass
-
     ax.set_yticks(tloc)
     ax.set_yticklabels(tlab)
 
@@ -146,6 +137,9 @@ class Residual:
 
     ax.set_xlabel("Offset (m)", fontsize=13)
     ax.set_ylabel("TWT (s)", fontsize=13)
+
+    if title:
+      ax.set_title(title, fontsize=13)
 
     plt.show()
 

@@ -23,6 +23,8 @@ factor = 0.009
 
 # Seismogram
 
+perc = 99
+
 save_residual = true
 
 nt = 2001

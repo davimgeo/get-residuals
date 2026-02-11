@@ -22,4 +22,4 @@ def main():
 if __name__ == "__main__":
     res = main()
 
-    res.plot(res.residual)
+    res.plot()
